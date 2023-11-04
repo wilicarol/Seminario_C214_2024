@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/button_widget.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
 
@@ -8,62 +10,226 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
-
 class _HomeState extends State<Home> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-    _counter++;
-    });
-  }
+  var userInput = '';
+var answer = '';
+
+void equalPress() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body:  Column(
+        children: [
+          Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        userInput.toString(),
+                        style: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      answer.toString(),
+                      style: TextStyle(fontSize: 30, color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        MyButton(
+                          title: 'AC',
+                          onPress: () {
+                            userInput = '';
+                            answer = '';
+                            setState(() {});
+                          },
+                        ),
+                       
+                        MyButton(
+                          title: '%',
+                          onPress: () {
+                            userInput += '%';
+                            setState(() {});
+                          },
+                        ),
+                         MyButton(
+                          title: '!',
+                          onPress: () {
+                            userInput += '!';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '/',
+                          color: Colors.green,
+                          onPress: () {
+                            userInput += '/';
+                            setState(() {});
+                          },
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        MyButton(
+                          title: '7',
+                          onPress: () {
+                            userInput += '7';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '8',
+                          onPress: () {
+                            userInput += '8';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '9',
+                          onPress: () {
+                            userInput += '9';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '*',
+                          color: Colors.green,
+                          onPress: () {
+                            userInput += '*';
+                            setState(() {});
+                          },
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        MyButton(
+                          title: '4',
+                          onPress: () {
+                            userInput += '4';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '5',
+                          onPress: () {
+                            userInput += '5';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '6',
+                          onPress: () {
+                            userInput += '6';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '-',
+                          color: Colors.green,
+                          onPress: () {
+                            userInput += '-';
+                            setState(() {});
+                          },
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        MyButton(
+                          title: '1',
+                          onPress: () {
+                            userInput += '1';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '2',
+                          onPress: () {
+                            userInput += '2';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '3',
+                          onPress: () {
+                            userInput += '3';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '+',
+                          color: Colors.green,
+                          onPress: () {
+                            userInput += '+';
+                            setState(() {});
+                          },
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        MyButton(
+                          title: '0',
+                          onPress: () {
+                            userInput += '0';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '.',
+                          onPress: () {
+                            userInput += '.';
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: 'DEL',
+                          onPress: () {
+                            userInput =
+                                userInput.substring(0, userInput.length - 1);
+                            setState(() {});
+                          },
+                        ),
+                        MyButton(
+                          title: '=',
+                          color: Colors.green,
+                          onPress: () {
+                            equalPress();
+                            setState(() {});
+                          },
+                        )
+                      ],
+                    )
+                  ],
+                ),),
+        ],
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
