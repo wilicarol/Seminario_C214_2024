@@ -7,6 +7,8 @@ pipeline {
         stage('Install Brew'){
             steps{
                 sh 'brew install xz'
+                sh 'sudo apt-get install xz-utils'
+                sh 'sudo yum install xz'
             }
         }
 
