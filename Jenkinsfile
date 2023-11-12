@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        FLUTTER_HOME = '/opt/flutter'
+        FLUTTER_HOME = "${WORKSPACE}/flutter"
         PATH = "${FLUTTER_HOME}/bin:$PATH"
     }
 
@@ -16,7 +16,7 @@ pipeline {
         stage('Install Flutter') {
             steps {
                 script {
-                    sh 'sudo -i'
+                    // Instalação do Flutter
                     sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
                     sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
                     sh 'flutter doctor'
@@ -27,6 +27,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+                    // Instalação das dependências do Flutter
                     sh 'flutter pub get'
                 }
             }
@@ -35,6 +36,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+                    // Execução dos testes
                     sh 'flutter test'
                 }
             }
@@ -43,15 +45,19 @@ pipeline {
         stage('Build App') {
             steps {
                 script {
+                    // Construção do aplicativo
                     sh 'flutter build apk'
-                    // You can use other build options like 'flutter build ios' for iOS
+                    // Você pode usar outras opções de construção, como 'flutter build ios' para iOS
                 }
             }
         }
+
+        // Adicione mais estágios conforme necessário para implantação, notificação, etc.
     }
 
     post {
         always {
+            // Limpeza após a execução
             script {
                 sh 'flutter clean'
             }
@@ -59,12 +65,12 @@ pipeline {
 
         success {
             echo 'Build successful!'
-            // Additional steps for a successful build
+            // Adicione etapas adicionais para uma construção bem-sucedida
         }
 
         failure {
             echo 'Build failed!'
-            // Additional steps for a failed build
+            // Adicione etapas adicionais para uma construção com falha
         }
     }
 }
