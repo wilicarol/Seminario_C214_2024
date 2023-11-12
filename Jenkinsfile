@@ -2,36 +2,30 @@ pipeline {
 
     agent any
 
+    environment {
+        FLUTTER_VERSION = '3.13.8'  // Substitua pela versão desejada do Flutter
+    }
+
     stages {
 
         stage('Install Brew'){
             steps{
-                sh 'brew install xz'
-                sh 'sudo apt-get install xz-utils'
-                sh 'sudo yum install xz'
+                scripts{
+                    sh 'apk --no-cache add xz'
+                }
             }
         }
 
         stage('Config Flutter'){
             steps{
-                sh '''
-                    # Define a versão do Flutter que você deseja instalar
-                    FLUTTER_VERSION="3.13.8"
-                    # Define o diretório onde o Flutter será instalado
-                    FLUTTER_INSTALL_DIR="/usr/local/flutter" 
-                    # Pode ser alterado para um diretório de sua escolha
-                    # Baixa o Flutter SDK
-                    curl -o flutter.tar.xz https://flutter.dev/builds/flutter/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz
-                    # Extrai o Flutter SDK para o diretório de instalação
-                    ls
-                    dir
-                    tar xf flutter.tar.xz -C /usr/local
-                    export PATH="$PATH:$FLUTTER_INSTALL_DIR/bin"
+                script {
+                    // Baixar e instalar o Flutter
+                    sh "git clone https://github.com/flutter/flutter.git -b ${FLUTTER_VERSION} --depth 1"
+                    sh "export PATH=\$PATH:`pwd`/flutter/bin"
 
-                    # Atualiza os pacotes do Flutter
-                    flutter precache
-                    flutter --version
-                '''
+                    // Verificar a instalação do Flutter
+                    sh "flutter --version"
+                }
             }
         }
 
