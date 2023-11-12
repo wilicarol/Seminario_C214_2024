@@ -10,22 +10,21 @@ pipeline {
 
         stage('Install Brew'){
             steps{
-                scripts{
-                    sh 'apk --no-cache add xz'
-                }
+                sh 'apk --no-cache add xz'
+                
             }
         }
 
         stage('Config Flutter'){
             steps{
-                script {
+
                     // Baixar e instalar o Flutter
                     sh "git clone https://github.com/flutter/flutter.git -b ${FLUTTER_VERSION} --depth 1"
                     sh "export PATH=\$PATH:`pwd`/flutter/bin"
 
                     // Verificar a instalação do Flutter
                     sh "flutter --version"
-                }
+                
             }
         }
 
