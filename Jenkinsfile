@@ -15,12 +15,8 @@ pipeline {
                     # Baixa o Flutter SDK
                     curl -o flutter.tar.xz https://flutter.dev/builds/flutter/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz
                     # Extrai o Flutter SDK para o diretório de instalação
-                    ls
                     dir
-                    xz -d flutter.tar.xz
-                    tar xf flutter.tar
-
-                    tar xf flutter.tar.xz
+                    tar --xz -xf flutter.tar.xz
                     export PATH="$PATH:$FLUTTER_INSTALL_DIR/bin"
 
                     # Atualiza os pacotes do Flutter
