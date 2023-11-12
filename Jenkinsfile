@@ -4,6 +4,12 @@ pipeline {
 
     stages {
 
+        stage('Install Brew'){
+            steps{
+                sh 'brew install xz'
+            }
+        }
+
         stage('Config Flutter'){
             steps{
                 sh '''
