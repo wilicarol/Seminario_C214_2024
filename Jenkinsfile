@@ -4,14 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Install Brew'){
-            steps{
-                sh 'brew install xz'
-                //sh 'brew install xz'
-                //sh 'sudo yum install xz'
-            }
-        }
-
         stage('Config Flutter'){
             steps{
                 sh '''
@@ -25,7 +17,10 @@ pipeline {
                     # Extrai o Flutter SDK para o diretório de instalação
                     ls
                     dir
-                    tar xf flutter.tar.xz -C /usr/local
+                    xz -d flutter.tar.xz
+                    tar xf flutter.tar
+
+                    tar xf flutter.tar.xz
                     export PATH="$PATH:$FLUTTER_INSTALL_DIR/bin"
 
                     # Atualiza os pacotes do Flutter
