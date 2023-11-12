@@ -5,8 +5,15 @@ pipeline {
     stages {
 
         stage('Config Flutter'){
+
             steps{
-                sh '''
+                sh 'docker run --rm -v "$(pwd):/workspace" -w /workspace alpine tar --xz -xf flutter.tar.xz -C /tmp/workspace/'
+            }
+
+            steps{
+                    sh '''
+
+        
                     # Define a versão do Flutter que você deseja instalar
                     FLUTTER_VERSION="3.13.8"
                     # Define o diretório onde o Flutter será instalado
@@ -16,7 +23,10 @@ pipeline {
                     curl -o flutter.tar.xz https://flutter.dev/builds/flutter/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz
                     # Extrai o Flutter SDK para o diretório de instalação
                     dir
-                    tar --xz -xf flutter.tar.xz
+                        docker run --rm -v "$(pwd):/workspace" -w /workspace alpine sh -c "
+                            apk --no-cache add xz
+                            xz -d flutter.tar.xz
+                            tar -xf flutter.tar -C /usr/local
                     export PATH="$PATH:$FLUTTER_INSTALL_DIR/bin"
 
                     # Atualiza os pacotes do Flutter
