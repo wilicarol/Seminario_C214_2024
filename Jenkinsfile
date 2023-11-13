@@ -12,6 +12,15 @@ pipeline {
                 checkout scm
             }
         }
+        
+        stage('Grant sudo privileges') {
+            steps {
+                script {
+                    // Adiciona o usuário Jenkins ao grupo sudoers sem senha
+                    sh 'echo "jenkins ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/jenkins'
+                }
+            }
+        }
 
         stage('Install lcov') {
             steps {
