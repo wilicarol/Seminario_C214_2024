@@ -13,18 +13,18 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install lcov') {
             steps {
                 script {
-                    sh 'flutter pub get'
+                    sh 'apt-get install lcov -y'
                 }
             }
         }
 
-        stage('Install lcov') {
+        stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'sudo apt-get install lcov -y'
+                    sh 'flutter pub get'
                 }
             }
         }
