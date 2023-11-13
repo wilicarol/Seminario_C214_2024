@@ -17,6 +17,8 @@ pipeline {
             steps {
                 script {
                     // Instalação do Flutter
+                    sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
+
                     sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
                     sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
                     sh 'flutter doctor'
