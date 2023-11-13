@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                     // Construção do aplicativo
-                    sh 'flutter build apk'
+                    sh 'flutter build web'
                     // Você pode usar outras opções de construção, como 'flutter build ios' para iOS
                 }
             }
