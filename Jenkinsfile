@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     sh 'flutter test --coverage'
-                    //sh 'genhtml coverage/lcov.info -o coverage/html'
+                    sh 'genhtml coverage/lcov.info -o coverage/html'
                 }
                 archiveArtifacts 'coverage/**'
             }
@@ -43,11 +43,6 @@ pipeline {
 
             steps {
                 echo 'Notification...'
-                sh '''
-                   cd scripts
-                   chmod 775 *
-                   ./jenkins.sh
-                   '''
             }
         }
     }

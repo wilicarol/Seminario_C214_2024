@@ -1,5 +1,7 @@
 # Trabalho DevOps
 
+A main não funciona por não encontrar o Android-sdk, o Branch 'web' seria a da entrega do trabalho, porem depois de mexer no docker file começou a dar problemas de permissões e não consegui resolver
+
 1. Montar imagem:
 
 ```

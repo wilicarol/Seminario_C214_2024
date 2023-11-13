@@ -11,17 +11,13 @@ RUN apt-get update && \
 # Adiciona o usuário Jenkins ao grupo sudo
 RUN usermod -aG sudo jenkins
 
-# Copia o arquivo de configuração JCasC
-COPY Jenkins.yaml /usr/share/jenkins/ref/casc_configs/
-
 # Configuração JCasC
+COPY Jenkins.yaml /usr/share/jenkins/ref/casc_configs/
 ENV CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc_configs/jenkins.yaml
 
-# Instalação do Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git /opt/flutter
 RUN chown -R jenkins:jenkins /opt/flutter
 
-# Permissões específicas
 RUN chmod -R 755 /opt/flutter/bin
 ENV PATH="/opt/flutter/bin:${PATH}"
 RUN flutter doctor
