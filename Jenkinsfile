@@ -17,10 +17,10 @@ pipeline {
             steps {
                 script {
                     // Instalação do Flutter
-                    sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
+                    //sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
 
-                    sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
-                    sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
+                    //sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
+                    //sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
                     sh 'flutter doctor'
                 }
             }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     sh 'flutter test --coverage'
-                    sh 'cp -r coverage/lcov.info $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/archive'
+                    //sh 'cp -r coverage/lcov.info $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/archive'
                 
                 }
                 archiveArtifacts 'coverage/lcov.info'
@@ -59,6 +59,7 @@ pipeline {
         always {
             script {
                 sh 'flutter clean'
+                //sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
             }
         }
 
