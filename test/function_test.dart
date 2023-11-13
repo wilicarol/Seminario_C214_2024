@@ -27,6 +27,19 @@ void main() {
   });
 
   test('Teste de porcentagem', () {
-    expect(CalculatorService.calc('20.0'), equals('20.0'));
+    expect(CalculatorService.calc('20%100'), equals('20.0'));
   });
+
+  test('Funcoes', () {
+    expect(CalculatorService.calc('10.0 + ( 13 - 3 ) * 2'), equals('30.0'));
+  });
+
+test('Erro: Variaveis invalidas', () {
+  expect(CalculatorService.calc('b * a'),equals('Bad state: Variable not bound: b'));
+});
+
+  test('Erro: Funcoes invalidas', () {
+    expect(CalculatorService.calc('a + ( 13 - 3 ) * 2'), equals('Bad state: Variable not bound: a'));
+  });
+
 }
