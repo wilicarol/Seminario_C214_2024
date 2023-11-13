@@ -24,7 +24,7 @@ pipeline {
         stage('Install lcov') {
             steps {
                 script {
-                    sh 'apt-get install lcov -y'
+                    sh 'sudo apt-get install lcov -y'
                 }
             }
         }
