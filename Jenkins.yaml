@@ -1,0 +1,14 @@
+jenkins:
+  systemMessage: "Configuração automática de SMTP para o Gmail"
+  numExecutors: 2
+  scmCheckoutRetryCount: 2
+  slaveAgentPort: 50000
+
+mailer:
+  smtpHost: "smtp.gmail.com"
+  smtpPort: "587"
+  smtpAuthUsername: "pedrodaluzmota208@gmail.com"
+  smtpAuthPassword: "pedro17208"
+  useTls: true
+  charset: "UTF-8"
+
