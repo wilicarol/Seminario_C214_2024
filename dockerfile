@@ -6,7 +6,7 @@ USER root
 
 # Instalação de dependências necessárias
 RUN apt-get update && \
-    apt-get install -y sudo curl unzip git
+    apt-get install -y sudo curl unzip git lcov
 
 # Instalação do Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git /opt/flutter
