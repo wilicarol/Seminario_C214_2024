@@ -13,17 +13,6 @@ pipeline {
             }
         }
 
-        stage('Install Flutter') {
-            steps {
-                script {
-                    // Instalação do Flutter
-                    sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
-                    sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
-                    sh 'flutter doctor'
-                }
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 script {
