@@ -13,19 +13,6 @@ pipeline {
             }
         }
 
-        stage('Install Flutter') {
-            steps {
-                script {
-                    // Instalação do Flutter
-                    //sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
-
-                    //sh 'git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}'
-                    //sh 'echo "export PATH=${FLUTTER_HOME}/bin:$PATH" >> ~/.bashrc'
-                    sh 'flutter doctor'
-                }
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 script {
@@ -34,14 +21,21 @@ pipeline {
             }
         }
 
+        stage('Install lcov') {
+            steps {
+                script {
+                    sh 'apt-get install lcov -y'
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
                     sh 'flutter test --coverage'
-                    //sh 'cp -r coverage/lcov.info $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/archive'
-                
+                    sh 'genhtml coverage/lcov.info -o coverage/html'
                 }
-                archiveArtifacts 'coverage/lcov.info'
+                archiveArtifacts 'coverage/**'
             }
         }
 
@@ -59,7 +53,6 @@ pipeline {
         always {
             script {
                 sh 'flutter clean'
-                //sh 'rm -rf /var/jenkins_home/workspace/Trabalho_web/flutter'
             }
         }
 

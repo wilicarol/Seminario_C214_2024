@@ -10,7 +10,7 @@ class CalculatorService{
     double eval = expression.evaluate(EvaluationType.REAL, contextModel);
     return eval.toString();
     }catch(e){
-      return e.toString();
+      return 'Invalid values';
     }
 
   } 

@@ -35,11 +35,11 @@ void main() {
   });
 
 test('Erro: Variaveis invalidas', () {
-  expect(CalculatorService.calc('b * a'),equals('Bad state: Variable not bound: b'));
+  expect(CalculatorService.calc('b * a'),equals('Invalid values'));
 });
 
   test('Erro: Funcoes invalidas', () {
-    expect(CalculatorService.calc('a + ( 13 - 3 ) * 2'), equals('Bad state: Variable not bound: a'));
+    expect(CalculatorService.calc('a + ( 13 - 3 ) * 2'), equals('Invalid values'));
   });
 
 }
