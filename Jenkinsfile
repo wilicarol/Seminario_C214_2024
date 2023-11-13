@@ -16,7 +16,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'sudo flutter pub get'
+                    sh 'flutter pub get'
                 }
             }
         }
