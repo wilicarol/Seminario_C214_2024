@@ -12,6 +12,7 @@ docker build -t dockerfile .
 docker run --name jenkins_flutter -p 8080:8080 -p 50000:50000 dockerfile
 ```
 
+3. Add SSH Key
 
-
+Gerencias Jenkins --> Secutiry --> Host Key Verification Strategy: No verification
 
