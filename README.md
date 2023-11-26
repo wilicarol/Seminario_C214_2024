@@ -1,16 +1,20 @@
-# cicd
+# Trabalho DevOps
 
-A new Flutter project.
+A main não funciona por não encontrar o Android-sdk, o Branch 'web' seria a da entrega do trabalho, porem depois de mexer no docker file começou a dar problemas de permissões e não consegui resolver
 
-## Getting Started
+1. Montar imagem:
 
-This project is a starting point for a Flutter application.
+```
+docker build -t dockerfile .  
+```
 
-A few resources to get you started if this is your first Flutter project:
+2. Iniciar Jenkins:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+docker run --name jenkins_flutter -p 8080:8080 -p 50000:50000 dockerfile
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Add SSH Key
+
+Gerencias Jenkins --> Secutiry --> Host Key Verification Strategy: No verification
+
