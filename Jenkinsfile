@@ -10,6 +10,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+                script{
+                    sh 'git config --global --add safe.directory /opt/flutter'
+                }
             }
         }
 
@@ -43,7 +46,7 @@ pipeline {
 
             steps {
                 echo 'Notification...'
-                sh 'cd scripts'
+                sh 'cd scripts/'
                 sh 'chmod 775 *'
                 sh 'ls'
                 sh 'bash ./shell.sh'
