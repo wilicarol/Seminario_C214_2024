@@ -48,7 +48,9 @@ pipeline {
                 echo 'Notification...'
                 sh 'chmod 775 *'
                 sh 'ls'
-                sh 'bash .scripts/shell.sh'
+                sh 'bash ./shell.sh'
+                sh 'cd scripts'
+                sh 'dir'
             }
         }
     }
