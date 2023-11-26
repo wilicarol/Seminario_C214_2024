@@ -1,0 +1,25 @@
+# Use a imagem oficial do Jenkins LTS
+FROM jenkins/jenkins:lts
+
+# Switch para o usuário root para instalar dependências
+USER root
+
+# Instalação de dependências necessárias
+RUN apt-get update && \
+    apt-get install -y sudo curl unzip git lcov mailutils
+
+# Define variável de ambiente para o diretório de instalação do Flutter
+ENV FLUTTER_HOME /opt/flutter
+
+#instala flutter
+RUN mkdir -p $FLUTTER_HOME && \
+    git clone https://github.com/flutter/flutter.git /opt/flutter
+
+# Configura a variável de ambiente PATH para incluir o Flutter
+ENV PATH=$PATH:/opt/flutter/bin
+
+# Define permissões para o diretório do flutter
+RUN chown -R jenkins:jenkins $FLUTTER_HOME
+
+# Volta para o usuário jenkins
+USER jenkins
