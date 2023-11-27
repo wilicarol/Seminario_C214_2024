@@ -17,4 +17,4 @@ ASSUNTO="O app foi contruido"
 CORPO="Notificação"
 
 # Enviar e-mail usando o comando mail
-echo -e "$CORPO" | mail -s "$ASSUNTO" -a "From: $EMAIL" -S smtp="smtp://$SMTP_SERVER:$SMTP_PORT" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTP_USERNAME" -S smtp-auth-password="$SMTP_PASSWORD" "$EMAIL"
+echo -e "$CORPO" | mail -s "$ASSUNTO" -a "From: $EMAIL" -s smtp="smtp://$SMTP_SERVER:$SMTP_PORT" -s smtp-use-starttls -s smtp-auth=login -s smtp-auth-user="$SMTP_USERNAME" -s smtp-auth-password="$SMTP_PASSWORD" "$EMAIL"
