@@ -39,6 +39,10 @@ pipeline {
         stage('Notification'){
 
             steps {
+                emailext subject: 'Assunto do E-mail',
+                          body: 'Corpo do E-mail',
+                          to: 'pedro.mota@ges.inatel.br',
+                          from: 'pedrodaluzmota208@gmail.com'
                 script{
                     echo 'Notification...'
                     sh '''
