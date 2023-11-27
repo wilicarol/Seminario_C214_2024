@@ -11,6 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+                    scho 'Installing dependencies...'
                     sh 'flutter pub get'
                 }
             }
@@ -19,6 +20,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+                    echo 'Testing...'
                     sh 'flutter test --coverage'
                     sh 'genhtml coverage/lcov.info -o coverage/html'
                 }
@@ -29,6 +31,7 @@ pipeline {
         stage('Build App') {
             steps {
                 script {
+                    echo 'Building...'
                     sh 'flutter build web'
                 }
                     
@@ -40,7 +43,7 @@ pipeline {
                 script{
                     echo 'Notification...'
                     sh 'chmod 775 *'
-                    sh 'cd scripts && bash ./shell.sh'
+                    sh 'cd scripts && ./shell.sh $EMAIL'
                     sh 'ls'
                 }
             }
