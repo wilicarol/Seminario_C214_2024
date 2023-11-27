@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+
+        EMAIL= "pedrodaluzmota208@gmail.com"
+    }
+
     stages {
 
         stage('Install Dependencies') {
