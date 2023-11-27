@@ -62,11 +62,9 @@ pipeline {
                 sh 'flutter clean'
             }
         }
-
         success {
             echo 'Build successful!'
         }
-
         failure {
             echo 'Build failed!'
         }
