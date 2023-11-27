@@ -40,7 +40,7 @@ pipeline {
         stage('Notification'){
 
             steps {
-                                        emailext subject: 'Assunto do E-mail',
+                emailext subject: 'Assunto do E-mail',
                           body: 'Corpo do E-mail',
                           to: 'pedrodaluzmota208@gmail.com',
                           from: 'pedrodaluzmota208@gmail.com'
