@@ -49,6 +49,12 @@ pipeline {
                        '''
                 }
             }
+            steps{
+                        emailext subject: 'Assunto do E-mail',
+                          body: 'Corpo do E-mail',
+                          to: 'pedrodaluzmota208@gmail.com',
+                          from: 'pedrodaluzmota208@gmail.com'
+            }
         }
     }
 

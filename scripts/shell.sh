@@ -1,7 +1,6 @@
 
 echo "Mandando e-mail com mail do linux" | mail -s "a subject" $1
 
-#!/bin/bash
 
 # Configurações do servidor SMTP
 SMTP_SERVER="smtp.gmail.com"
