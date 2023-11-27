@@ -47,7 +47,6 @@ pipeline {
                         chmod 775 *
                         ./shell.sh $EMAIL
                        '''
-                    sh 'ls'
                 }
             }
         }
