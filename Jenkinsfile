@@ -11,7 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    scho 'Installing dependencies...'
+                    echo 'Installing dependencies...'
                     sh 'flutter pub get'
                 }
             }
