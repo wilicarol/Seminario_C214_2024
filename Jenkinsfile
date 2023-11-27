@@ -39,8 +39,9 @@ pipeline {
             steps {
                 script{
                     echo 'Notification...'
-                    sh 'chmod 775 *'
-                    sh 'cd scripts && bash ./shell.sh'
+                    sh 'cd scripts'
+                    sh 'chmod +x shell.sh'
+                    sh './shell.sh'
                     sh 'ls'
                 }
             }
