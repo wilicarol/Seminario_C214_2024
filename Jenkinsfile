@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        FLUTTER_HOME = "${WORKSPACE}/flutter"
-        PATH = "${FLUTTER_HOME}/bin:$PATH"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -47,10 +42,8 @@ pipeline {
             steps {
                 echo 'Notification...'
                 sh 'chmod 775 *'
+                sh 'cd scripts && bash ./shell.sh'
                 sh 'ls'
-                sh 'bash ./shell.sh'
-                sh 'cd scripts'
-                sh 'dir'
             }
         }
     }
