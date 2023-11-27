@@ -2,14 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-                script{
-                    sh 'git config --global --add safe.directory /opt/flutter'
-                }
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
@@ -40,10 +32,12 @@ pipeline {
         stage('Notification'){
 
             steps {
-                echo 'Notification...'
-                sh 'chmod 775 *'
-                sh 'cd scripts && bash ./shell.sh'
-                sh 'ls'
+                script{
+                    echo 'Notification...'
+                    sh 'chmod 775 *'
+                    sh 'cd scripts && bash ./shell.sh'
+                    sh 'ls'
+                }
             }
         }
     }

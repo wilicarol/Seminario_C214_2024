@@ -18,6 +18,8 @@ RUN mkdir -p $FLUTTER_HOME && \
 # Configura a variável de ambiente PATH para incluir o Flutter
 ENV PATH=$PATH:/opt/flutter/bin
 
+RUN git config --global --add safe.directory /opt/flutter
+
 # Define permissões para o diretório do flutter
 RUN chown -R jenkins:jenkins $FLUTTER_HOME
 
