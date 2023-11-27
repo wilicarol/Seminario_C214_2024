@@ -6,7 +6,7 @@ USER root
 
 # Instalação de dependências necessárias
 RUN apt-get update && \
-    apt-get install -y sudo curl unzip git lcov mailutils
+    apt-get install -y sudo curl unzip git lcov mailutils postfix
 
 # Define variável de ambiente para o diretório de instalação do Flutter
 ENV FLUTTER_HOME /opt/flutter
@@ -22,6 +22,14 @@ RUN git config --global --add safe.directory /opt/flutter
 
 # Define permissões para o diretório do flutter
 RUN chown -R jenkins:jenkins $FLUTTER_HOME
+
+# Configurar o Postfix
+COPY postfix/main.cf /etc/postfix/main.cf
+COPY postfix/sasl_passwd /etc/postfix/sasl_passwd
+RUN postmap /etc/postfix/sasl_passwd
+
+# Reiniciar o serviço Postfix
+RUN service postfix restart
 
 # Volta para o usuário jenkins
 USER jenkins
