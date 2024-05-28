@@ -1,8 +1,6 @@
 # 📱🔢 Seminário
 
-
-Calculadora Simples!  
-![unit-tests](https//github.com/wilicarol/Seminario_C214_2024/actions/workflows/flutter.yaml/badge.svg)
+Bem-vindo ao repositório do nosso seminário sobre desenvolvimento de uma calculadora em Flutter!
 
 ## Tecnologias utilizadas
 - [Flutter](https://flutter.dev/) - Linguagem de programação que permite que os desenvolvedores criem aplicações nativas para dispositivos móveis (iOS e Android), web e desktop a partir de uma única base de código.
@@ -42,23 +40,21 @@ Calculadora Simples!
    flutter run
    ```
 
-#### Visual
 1. **Montar imagem:**
 
-```
-docker build -t dockerfile .  
-```
+    ```
+    docker build -t dockerfile .  
+    ```
 
 2. **Iniciar:**
    
-Subir container
-```
-docker run --name jenkins_flutter -p 8080:8080 -p 50000:50000 dockerfile
-```
-Subir com docker-compose
-```
-docker-compose -f docker-compose.yaml up
-
+    Subir container
+    ```
+    docker run --name jenkins_flutter -p 8080:8080 -p 50000:50000 dockerfile
+    ```
+    Subir com docker-compose
+    ```
+    docker-compose -f docker-compose.yaml up.
 
 ## Testes:
 
