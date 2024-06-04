@@ -21,11 +21,11 @@ jobs:
           channel: stable
           flutter-version: '3.19.6'
 
-      - name: Check Flutter version
-        run: flutter --version
-
       - name: Run Flutter tests
-        run: flutter test
+        run: flutter test --coverage
+
+      - name: Report
+        run: genhtml coverage/lcov.info -o coverage/html
 
   build:
     runs-on: ubuntu-latest
