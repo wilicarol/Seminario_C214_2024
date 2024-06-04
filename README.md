@@ -40,28 +40,13 @@ Bem-vindo ao repositório do nosso seminário sobre desenvolvimento de uma calcu
    flutter run
    ```
 
-1. **Montar imagem:**
-
-    ```
-    docker build -t dockerfile .  
-    ```
-
-2. **Iniciar:**
-   
-    Subir container
-    ```
-    docker run --name jenkins_flutter -p 8080:8080 -p 50000:50000 dockerfile
-    ```
-    Subir com docker-compose
-    ```
-    docker-compose -f docker-compose.yaml up.
 
 ## Testes:
 
  **Execute os Testes:**
-    ```bash
-    flutter test
-    ```
+   ```bash
+   flutter test
+   ```
     Os testes serão executados e você verá os resultados no terminal.
     Obs.: Verifique que você está no diretório raiz do projeto.
 
