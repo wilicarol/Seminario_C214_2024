@@ -24,9 +24,6 @@ jobs:
       - name: Run Flutter tests
         run: flutter test --coverage
 
-      - name: Report
-        run: genhtml coverage/lcov.info -o coverage/html
-
   build:
     runs-on: ubuntu-latest
     needs: test  # Este trabalho será executado após o trabalho de teste
