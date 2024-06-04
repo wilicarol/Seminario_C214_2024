@@ -47,8 +47,8 @@ Bem-vindo ao repositório do nosso seminário sobre desenvolvimento de uma calcu
    ```bash
    flutter test
    ```
-    Os testes serão executados e você verá os resultados no terminal.
-    Obs.: Verifique que você está no diretório raiz do projeto.
+ Os testes serão executados e você verá os resultados no terminal.
+ Obs.: Verifique que você está no diretório raiz do projeto.
 
 ## Equipe
 
