@@ -20,5 +20,12 @@ jobs:
           channel: stable
           flutter-version: '3.19.6'
       - run: flutter --version
-      - run: flutter pub get
-      - run: flutter test
+      
+      - name: Instalando dependencias
+        run: flutter pub get
+
+      - name: Testando
+        run: flutter test
+
+
+      
